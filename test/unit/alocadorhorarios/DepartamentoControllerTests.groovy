@@ -12,6 +12,6 @@ import org.junit.*
 class DepartamentoControllerTests {
 
     void testSomething() {
-       fail "Implement me"
+       //Por enquanto não testaremos o controlador, dado que usa scaffold
     }
 }
