@@ -10,6 +10,6 @@ class Professor {
 		nome()
 		matricula()
 		email(email:true)
-		imagem(maxSize:300000 /*300k*/)
+		imagem(size:0..300000 /*300k*/)
     }
 }
