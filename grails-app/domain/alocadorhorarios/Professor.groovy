@@ -5,6 +5,8 @@ class Professor {
 	String nome
 	String email
 	
+	static hasMany = [telefones:Telefone]
+	
     static constraints = {
 		nome()
 		matricula()
