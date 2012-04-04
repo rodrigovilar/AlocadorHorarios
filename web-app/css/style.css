@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+img.imgDoubleBorderLightGray {
+	border: 5px solid #dadada;
+	padding: 5px;
+	padding: 10px;
+	-moz-box-shadow: inset 0 0 10px #000000;
+	-webkit-box-shadow: inset 0 0 10px #000000;
+	box-shadow: inset 0 0 10px #000000;
+	background-color: gray
+}

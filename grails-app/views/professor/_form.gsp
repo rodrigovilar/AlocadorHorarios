@@ -26,11 +26,19 @@
 	<g:field type="email" name="email" value="${professorInstance?.email}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: professorInstance, field: 'imagem', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: professorInstance, field: 'imagem', 'error')} ">
 	<label for="imagem">
 		<g:message code="professor.imagem.label" default="Imagem" />
-		<span class="required-indicator">*</span>
+		
 	</label>
 	<input type="file" id="imagem" name="imagem" />
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: professorInstance, field: 'telefones', 'error')} ">
+	<label for="telefones">
+		<g:message code="professor.telefones.label" default="Telefones" />
+		
+	</label>
+	<g:select name="telefones" from="${alocadorhorarios.Telefone.list()}" multiple="multiple" optionKey="id" size="5" value="${professorInstance?.telefones*.id}" class="many-to-many"/>
 </div>
 

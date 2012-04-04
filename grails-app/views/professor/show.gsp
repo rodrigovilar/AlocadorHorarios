@@ -4,6 +4,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
+		<link rel="stylesheet" href="${resource(dir: 'css', file: 'style.css')}" type="text/css">
 		<g:set var="entityName" value="${message(code: 'professor.label', default: 'Professor')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
@@ -49,13 +50,27 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${professorInstance?.imagem}">
+		
+				<g:if test="${professorInstance?.imagem}">					
 				<li class="fieldcontain">
 					<span id="imagem-label" class="property-label">
-					<g:message code="professor.imagem.label" default="Imagem" />
-					</span>
-					<img width="120" height="120"   src="/AlocadorHorarios/professor/imagemProfessor/${professorInstance.id}" />
+					
+					<g:message code="professor.imagem.label" default="Imagem" /></span>
+					 
+					<img alt="" class="imgDoubleBorderLightGray" width="100" height="100"  style="margin-left: 15px" src="/AlocadorHorarios/professor/imagemProfessor/${professorInstance.id}">
+					
+					 
+				</li>			
+				</g:if>
+				
+				<g:if test="${professorInstance?.telefones}">
+				<li class="fieldcontain">
+					<span id="telefones-label" class="property-label"><g:message code="professor.telefones.label" default="Telefones" /></span>
+					
+						<g:each in="${professorInstance.telefones}" var="t">
+						<span class="property-value" aria-labelledby="telefones-label"><g:link controller="telefone" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
 				</li>
 				</g:if>
 			
