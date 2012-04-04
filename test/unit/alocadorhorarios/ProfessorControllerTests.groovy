@@ -10,150 +10,151 @@ import grails.test.mixin.*
 class ProfessorControllerTests {
 
 
-    def populateValidParams(params) {
-      assert params != null
-      // TODO: Populate valid properties like...
-      //params["name"] = 'someValidName'
-    }
+	def populateValidParams(params) {
+		assert params != null
+		params.nome = 'Prof nome'
+		params.matricula = '123'
+		params.email = 'abc@mail.com'
+	}
 
-    void testIndex() {
-        controller.index()
-        assert "/professor/list" == response.redirectedUrl
-    }
+	void testIndex() {
+		controller.index()
+		assert "/professor/list" == response.redirectedUrl
+	}
 
-    void testList() {
+	void testList() {
 
-        def model = controller.list()
+		def model = controller.list()
 
-        assert model.professorInstanceList.size() == 0
-        assert model.professorInstanceTotal == 0
-    }
+		assert model.professorInstanceList.size() == 0
+		assert model.professorInstanceTotal == 0
+	}
 
-    void testCreate() {
-       def model = controller.create()
+	void testCreate() {
+		def model = controller.create()
 
-       assert model.professorInstance != null
-    }
+		assert model.professorInstance != null
+	}
 
-    void testSave() {
-        controller.save()
+	void testSave() {
+		controller.save()
 
-        assert model.professorInstance != null
-        assert view == '/professor/create'
+		assert model.professorInstance != null
+		assert view == '/professor/create'
 
-        response.reset()
+		response.reset()
 
-        populateValidParams(params)
-        controller.save()
+		populateValidParams(params)
+		controller.save()
 
-        assert response.redirectedUrl == '/professor/show/1'
-        assert controller.flash.message != null
-        assert Professor.count() == 1
-    }
+		assert response.redirectedUrl == '/professor/show/1'
+		assert controller.flash.message != null
+		assert Professor.count() == 1
+	}
 
-    void testShow() {
-        controller.show()
+	void testShow() {
+		controller.show()
 
-        assert flash.message != null
-        assert response.redirectedUrl == '/professor/list'
-
-
-        populateValidParams(params)
-        def professor = new Professor(params)
-
-        assert professor.save() != null
-
-        params.id = professor.id
-
-        def model = controller.show()
-
-        assert model.professorInstance == professor
-    }
-
-    void testEdit() {
-        controller.edit()
-
-        assert flash.message != null
-        assert response.redirectedUrl == '/professor/list'
+		assert flash.message != null
+		assert response.redirectedUrl == '/professor/list'
 
 
-        populateValidParams(params)
-        def professor = new Professor(params)
+		populateValidParams(params)
+		def professor = new Professor(params)
 
-        assert professor.save() != null
+		assert professor.save() != null
 
-        params.id = professor.id
+		params.id = professor.id
 
-        def model = controller.edit()
+		def model = controller.show()
 
-        assert model.professorInstance == professor
-    }
+		assert model.professorInstance == professor
+	}
 
-    void testUpdate() {
-        controller.update()
+	void testEdit() {
+		controller.edit()
 
-        assert flash.message != null
-        assert response.redirectedUrl == '/professor/list'
-
-        response.reset()
+		assert flash.message != null
+		assert response.redirectedUrl == '/professor/list'
 
 
-        populateValidParams(params)
-        def professor = new Professor(params)
+		populateValidParams(params)
+		def professor = new Professor(params)
 
-        assert professor.save() != null
+		assert professor.save() != null
 
-        // test invalid parameters in update
-        params.id = professor.id
-        //TODO: add invalid values to params object
+		params.id = professor.id
 
-        controller.update()
+		def model = controller.edit()
 
-        assert view == "/professor/edit"
-        assert model.professorInstance != null
+		assert model.professorInstance == professor
+	}
 
-        professor.clearErrors()
+	void testUpdate() {
+		controller.update()
 
-        populateValidParams(params)
-        controller.update()
+		assert flash.message != null
+		assert response.redirectedUrl == '/professor/list'
 
-        assert response.redirectedUrl == "/professor/show/$professor.id"
-        assert flash.message != null
+		response.reset()
 
-        //test outdated version number
-        response.reset()
-        professor.clearErrors()
 
-        populateValidParams(params)
-        params.id = professor.id
-        params.version = -1
-        controller.update()
+		populateValidParams(params)
+		def professor = new Professor(params)
 
-        assert view == "/professor/edit"
-        assert model.professorInstance != null
-        assert model.professorInstance.errors.getFieldError('version')
-        assert flash.message != null
-    }
+		assert professor.save() != null
 
-    void testDelete() {
-        controller.delete()
-        assert flash.message != null
-        assert response.redirectedUrl == '/professor/list'
+		// test invalid parameters in update
+		params.id = professor.id
+		params.email = 'sdf'
 
-        response.reset()
+		controller.update()
 
-        populateValidParams(params)
-        def professor = new Professor(params)
+		assert view == "/professor/edit"
+		assert model.professorInstance != null
 
-        assert professor.save() != null
-        assert Professor.count() == 1
+		professor.clearErrors()
 
-        params.id = professor.id
+		populateValidParams(params)
+		controller.update()
 
-        controller.delete()
+		assert response.redirectedUrl == "/professor/show/$professor.id"
+		assert flash.message != null
 
-        assert Professor.count() == 0
-        assert Professor.get(professor.id) == null
-        assert response.redirectedUrl == '/professor/list'
-    }
+		//test outdated version number
+		response.reset()
+		professor.clearErrors()
+
+		populateValidParams(params)
+		params.id = professor.id
+		params.version = -1
+		controller.update()
+
+		assert view == "/professor/edit"
+		assert model.professorInstance != null
+		assert model.professorInstance.errors.getFieldError('version')
+		assert flash.message != null
+	}
+
+	void testDelete() {
+		controller.delete()
+		assert flash.message != null
+		assert response.redirectedUrl == '/professor/list'
+
+		response.reset()
+
+		populateValidParams(params)
+		def professor = new Professor(params)
+
+		assert professor.save() != null
+		assert Professor.count() == 1
+
+		params.id = professor.id
+
+		controller.delete()
+
+		assert Professor.count() == 0
+		assert Professor.get(professor.id) == null
+		assert response.redirectedUrl == '/professor/list'
+	}
 }
