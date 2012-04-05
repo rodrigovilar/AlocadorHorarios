@@ -1,11 +1,11 @@
 package alocadorhorarios
 
 class Periodo {
-
+	 
 	Integer numero
-
-    static constraints = {
-		numero()
-    }
+	static hasMany = [itensGrade :ItemGrade]
 	
+	static constraints= {
+		numero()
+	}
 }
