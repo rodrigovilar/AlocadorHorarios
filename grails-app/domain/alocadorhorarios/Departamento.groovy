@@ -6,6 +6,8 @@ class Departamento {
 	Professor subchefe
 	String nome
 	String cor
+	static hasMany = [professores:Professor]
+	
 
     static constraints = {
 		nome()

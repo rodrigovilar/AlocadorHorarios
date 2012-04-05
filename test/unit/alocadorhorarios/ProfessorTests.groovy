@@ -1,3 +1,4 @@
+
 package alocadorhorarios
 
 import static org.junit.Assert.*
@@ -6,25 +7,37 @@ import grails.test.mixin.support.*
 
 
 @TestFor(Professor)
-class ProfessorTests {
+@Mock(Departamento)
+class ProfessorTests { 
 
 	void testValidacaoProfessor() {
 
-		def professorVazio = new Professor()
+		def professorSemDepartamento = new Professor()
+		assert !professorSemDepartamento.validate()
+
+		Departamento departamento = new Departamento(nome:"Dep", cor:"azul")
+		Professor professorVazio = new Professor()
+		departamento.addToProfessores(professorVazio)
 		assert !professorVazio.validate()
 
-		def emailInvalido =
+		Professor emailInvalido =
 				new Professor(nome: "Prof nome", matricula: "123", email: "sdf")
+		departamento.addToProfessores(emailInvalido)
 		assert !emailInvalido.validate()
 
-		def professorValido =
+		Professor professorValido =
 				new Professor(nome: "Prof nome", matricula: "123", email: "abc@mail.com")
+		departamento.addToProfessores(professorValido)
 		assert professorValido.validate()
 	}
 	
 	void testCRUD() {
+		Departamento departamento = new Departamento(nome:"Dep", cor:"azul")
+		departamento.save()
+		
 		def professor =
 			new Professor(nome: "Prof nome", matricula: "123", email: "abc@mail.com")
+		departamento.addToProfessores(professor)
 		professor.save()
 		
 		def professores = Professor.list()
@@ -55,8 +68,12 @@ class ProfessorTests {
 	}
 	
 	void testTelefones() {
+		Departamento departamento = new Departamento(nome:"Dep", cor:"azul")
+		departamento.save()
+
 		def professor =
 			new Professor(nome: "Prof nome", matricula: "123", email: "abc@mail.com")
+		departamento.addToProfessores(professor)
 		professor.addToTelefones(new Telefone(numero:"8882-2345"))
 		professor.addToTelefones(new Telefone(numero:"2344-2345"))
 		professor.save()
@@ -73,5 +90,35 @@ class ProfessorTests {
 		def telefone2 = telefones[1]
 		assertEquals "2344-2345", telefone2.numero
 		
+	}
+	
+	void testDependenciaDepartamento() {
+		Departamento departamento = new Departamento(nome:"Dep", cor:"azul")
+		def professor =
+			new Professor(nome: "Prof nome", matricula: "123", email: "abc@mail.com")
+		departamento.addToProfessores(professor)
+		departamento.save()
+		
+		def professores = Professor.list()
+		assert professores.size() == 1
+
+		assert departamento.professores.size() == 1
+		
+		Departamento departamento2 = new Departamento(nome:"Dep2", cor:"verde")
+		departamento2.addToProfessores(professor)
+		departamento2.save()
+		
+		departamento.professores.remove(professor)
+		departamento.save()
+
+		professores = Professor.list()
+		assert professores.size() == 1
+
+		assert departamento2.professores.size() == 1
+		assert departamento.professores.size() == 0 
+
+		def professor2 =
+			new Professor(nome: "Prof nome2", matricula: "2", email: "abc2@mail.com")
+		assert !professor2.validate()
 	}
 }

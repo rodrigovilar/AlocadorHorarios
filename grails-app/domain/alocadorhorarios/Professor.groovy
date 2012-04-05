@@ -4,11 +4,13 @@ class Professor {
 	String matricula
 	String nome
 	String email
-	
-	static hasMany = [telefones:Telefone]
 	byte[] imagem;
 	
+	static belongsTo = [departamento:Departamento]
+	static hasMany = [telefones:Telefone]
+	
     static constraints = {
+		departamento()
 		nome()
 		matricula()
 		email(email:true)
