@@ -10,20 +10,14 @@ class ProfessorController {
         redirect(action: "list", params: params)
     }
 	
-	def imagem = {
-		def professor = alocadorhorarios.Professor.get(params.id)
-		byte[] imagem = professor.imagem
-		response.outputStream << imagem
-	}
-	def imagemProfessor = {
+	def imagemProfessor ={
 		if (params.id){
+			Professor professor = Professor.findById(params.id)
 			
-		
-		Professor professor = Professor.findById(params.id)
 			if(professor){
 				response.outputStream << professor.imagem
 			}
-		
+			 
 		}
 	}
 

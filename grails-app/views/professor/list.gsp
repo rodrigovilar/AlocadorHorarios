@@ -3,6 +3,7 @@
 <!doctype html>
 <html>
 	<head>
+	<link rel="stylesheet" href="${resource(dir: 'css', file: 'style.css')}" type="text/css">
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'professor.label', default: 'Professor')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
@@ -30,11 +31,10 @@
 					
 						<g:sortableColumn property="email" title="${message(code: 'professor.email.label', default: 'Email')}" />
 					
-						<g:sortableColumn property="imagem" title="${message(code: 'professor.imagem.label', default: 'Imagem')}" />
-						
 						 
+						<th>Imagem</th>
 					
-				
+					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${professorInstanceList}" status="i" var="professorInstance">
@@ -46,9 +46,10 @@
 					
 						<td>${fieldValue(bean: professorInstance, field: "email")}</td>
 					
-						<td><img width="120" height="120"  src="/AlocadorHorarios/professor/imagemProfessor/${professorInstance.id}"/>	</td>
-						
-						
+						 
+						<td>   
+							<img alt="" class="imgDoubleBorderLightGray" width="100" height="100"    src="/AlocadorHorarios/professor/imagemProfessor/${professorInstance.id}">
+						</td>
 					
 					</tr>
 				</g:each>
