@@ -13,7 +13,6 @@ class Disciplina {
 		nome()
 		cargaHoraria()
 		credito()
-		
 		departamento()
 	}
 

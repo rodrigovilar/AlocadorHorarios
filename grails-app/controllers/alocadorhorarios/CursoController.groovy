@@ -2,5 +2,5 @@ package alocadorhorarios
 
 class CursoController {
 
-    def index() { }
+    def scaffold = true
 }

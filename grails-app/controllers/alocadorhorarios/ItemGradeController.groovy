@@ -2,5 +2,5 @@ package alocadorhorarios
 
 class ItemGradeController {
 
-    def index() { }
+    def scaffold = true
 }
