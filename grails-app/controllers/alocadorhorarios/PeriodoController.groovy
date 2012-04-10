@@ -2,5 +2,5 @@ package alocadorhorarios
 
 class PeriodoController {
 
-    def index() { }
+    def scaffold = true
 }

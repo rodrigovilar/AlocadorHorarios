@@ -15,7 +15,6 @@ class Professor {
 		nome()
 		email(email:true)
 		imagem(nullable:true, size:0..300000 /*300k*/)
-		
 		departamento()
     }
 }
