@@ -2,12 +2,12 @@ package alocadorhorarios
 
 class Departamento {
 	
-	Professor chefe
-	Professor subchefe
 	String nome
 	String cor
-	static hasMany = [professores:Professor]
+	Professor chefe
+	Professor subchefe
 	
+	static hasMany = [professores:Professor, disciplinas:Disciplina]
 
     static constraints = {
 		nome()
