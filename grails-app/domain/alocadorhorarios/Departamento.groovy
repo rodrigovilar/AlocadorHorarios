@@ -11,7 +11,7 @@ class Departamento {
 
     static constraints = {
 		nome()
-		cor()
+		cor(inList:['Azul','Vermelhor','Amarelo','Preto','Verde'])
 		chefe(nullable:true)
 		subchefe(nullable:true)
     }
