@@ -10,20 +10,17 @@ class DepartamentoTests {
 	void testValidacaoDepartamento() {
 	
 		Departamento nomeInvalido =
-				new Departamento(nome: "XXXXX", cor: "azul", chefe: "Rodrigo", subchefe: "Jorge")
+				new Departamento(cor: "azul")
 		assert !nomeInvalido.validate()
 	
 		Departamento corInvalida =
-				new Departamento(nome: "DCE", cor: "cor", chefe: "Rodrigo", subchefe: "Jorge")
+				new Departamento(nome: "DCE")
 		assert !corInvalida.validate()
 		
 		Departamento chefeInvalido =
-				new Departamento(nome: "DCE", cor: "azul", chefe: "Professor", subchefe: "Jorge")
-		assert !chefeInvalido.validate()
+				new Departamento(nome: "DCE", cor: "azul")
+		assert chefeInvalido.validate()
 		
-		Departamento subChefeInvalido =
-				new Departamento(nome: "DCE", cor: "cor", chefe: "Rodrigo", subchefe: "Professor")
-		assert !subChefeInvalido.validate()
 	}
 	
 	void testCRUD() {
