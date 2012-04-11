@@ -5,8 +5,6 @@ import static org.junit.Assert.*
 import grails.test.mixin.support.*
 
 
-//@TestFor(Departamento)
-//@Mock(Departamento)
 class DepartamentoTests {
 
 	void testValidacaoDepartamento() {
