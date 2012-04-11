@@ -4,7 +4,7 @@ class ItemGrade {
 
 	Integer id
 	
-	static belongsTo = [Periodo,DepartamentoTests]
+	static belongsTo = [Periodo,Departamento]
 
 	
     static constraints = {
