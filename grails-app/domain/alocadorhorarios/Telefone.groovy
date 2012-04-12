@@ -2,7 +2,7 @@ package alocadorhorarios
 
 class Telefone {
 	String numero
-	static belongsTo = Professor
+	static belongsTo = [professor:Professor]
 
     static constraints = {
 		numero(nullable:false)

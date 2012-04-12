@@ -10,7 +10,7 @@ class DepartamentoTests {
 	void testValidacaoDepartamento() {
 	
 		Departamento nomeInvalido =
-				new Departamento(cor: "azul")
+				new Departamento(cor: "Azul")
 		assert !nomeInvalido.validate()
 	
 		Departamento corInvalida =
@@ -18,15 +18,15 @@ class DepartamentoTests {
 		assert !corInvalida.validate()
 		
 		Departamento chefeInvalido =
-				new Departamento(nome: "DCE", cor: "azul")
+				new Departamento(nome: "DCE", cor: "Azul")
 		assert chefeInvalido.validate()
 		
 	}
 	
 	void testCRUD() {
 		
-		Departamento departamento1 = new Departamento(nome:"DCE", cor:"azul")
-		Departamento departamento2 = new Departamento(nome:"DL", cor:"verde")
+		Departamento departamento1 = new Departamento(nome:"DCE", cor:"Azul")
+		Departamento departamento2 = new Departamento(nome:"DL", cor:"Verde")
 		departamento1.save()
 		departamento2.save()
 		
@@ -42,7 +42,7 @@ class DepartamentoTests {
 		assertEquals departamento2.cor, departamentoCadastrado2.cor
 		
 		departamento1.nome = "nome 1"
-		departamento1.cor = "vermelho"
+		departamento1.cor = "Vermelho"
 		departamento1.save()
 		
 		departamentos = Departamento.list()
