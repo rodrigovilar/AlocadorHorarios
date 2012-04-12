@@ -9,6 +9,5 @@ class Periodo {
 	
 	static constraints= {
 		numero()
-		curso()
 	}
 }

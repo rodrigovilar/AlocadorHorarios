@@ -93,7 +93,7 @@ class ProfessorTests {
 	}
 	
 	void testDependenciaDepartamento() {
-		Departamento departamento = new Departamento(nome:"Dep", cor:"azul")
+		Departamento departamento = new Departamento(nome:"Dep", cor:"Azul")
 		def professor =
 			new Professor(nome: "Prof nome", matricula: "123", email: "abc@mail.com")
 		departamento.addToProfessores(professor)
@@ -104,7 +104,7 @@ class ProfessorTests {
 
 		assert departamento.professores.size() == 1
 		
-		Departamento departamento2 = new Departamento(nome:"Dep2", cor:"verde")
+		Departamento departamento2 = new Departamento(nome:"Dep2", cor:"Verde")
 		departamento2.addToProfessores(professor)
 		departamento2.save()
 		
