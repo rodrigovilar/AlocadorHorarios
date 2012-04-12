@@ -8,7 +8,7 @@ class Professor {
 	byte[] imagem
 	
 	static hasMany = [telefones:Telefone]
-	static belongsTo = [departamento:Departamento]
+	static belongsTo = Departamento
 	
     static constraints = {
 		matricula()
