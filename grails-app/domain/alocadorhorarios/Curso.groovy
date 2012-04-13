@@ -12,4 +12,8 @@ class Curso {
 		viceCoordenador()
     }
 
+	
+	String toString(){
+		return nome
+	}
 }

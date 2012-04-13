@@ -8,7 +8,7 @@ class Professor {
 	byte[] imagem
 	
 	static hasMany = [telefones:Telefone]
-	static belongsTo = [departamento:Departamento]
+	static belongsTo = Departamento
 	
     static constraints = {
 		matricula()
@@ -16,4 +16,11 @@ class Professor {
 		email(email:true)
 		imagem(nullable:true, size:0..300000 /*300k*/)
     }
+
+	
+	String toString(){
+		 
+		return nome
+	}
+ 
 }

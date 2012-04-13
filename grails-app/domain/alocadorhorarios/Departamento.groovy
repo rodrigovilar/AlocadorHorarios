@@ -11,8 +11,13 @@ class Departamento {
 
     static constraints = {
 		nome()
-		cor(inList:['Azul','Vermelho','Amarelo','Preto','Verde'])
+		cor()
 		chefe(nullable:true)
 		subchefe(nullable:true)
     }
+	
+	
+	String toString(){
+		return nome
+	}
 }

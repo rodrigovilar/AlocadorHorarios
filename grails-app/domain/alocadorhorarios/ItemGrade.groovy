@@ -9,4 +9,9 @@ class ItemGrade {
 	
     static constraints = {
     }
+	
+	String toString(){
+		return id
+	}
+	
 }
