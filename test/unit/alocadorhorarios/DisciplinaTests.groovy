@@ -2,7 +2,7 @@ package alocadorhorarios;
 
 import static org.junit.Assert.*;
 
-@TestFor(Disciplina)
+@TestFor(Disciplina) 
 @Mock(Departamento)
 class DisciplinaTests {
 
@@ -16,15 +16,15 @@ class DisciplinaTests {
 		departamento.addToDisciplinas(disciplinaVazia)
 		assert !disciplinaVazia.validate()
 
-		Disciplina cargaHorariaInvalida = new Disciplina(nome: "Matemática Elementar", cargaHoraria: "asdfg", credito: 4)
+		Disciplina cargaHorariaInvalida = new Disciplina(nome: "Matemï¿½tica Elementar", cargaHoraria: "asdfg", credito: 4)
 		departamento.addToDisciplinas(cargaHorariaInvalida)
 		assert !cargaHorariaInvalida.validate()
 
-		Disciplina creditoInvalido = new Disciplina(nome: "Matemática Elementar", cargaHoraria: 60, credito: "asdfg")
+		Disciplina creditoInvalido = new Disciplina(nome: "Matemï¿½tica Elementar", cargaHoraria: 60, credito: "asdfg")
 		departamento.addToDisciplinas(creditoInvalido)
 		assert !creditoInvalido.validate()
 
-		Disciplina disciplinaValida = new Disciplina(nome: "Matemática Elementar", cargaHoraria: 60, credito: 4)
+		Disciplina disciplinaValida = new Disciplina(nome: "Matemï¿½tica Elementar", cargaHoraria: 60, credito: 4)
 		departamento.addToDisciplinas(disciplinaValida)
 		assert disciplinaValida.validate()
 	}
@@ -92,7 +92,7 @@ class DisciplinaTests {
 		departamento.save()
 		disciplina.save()
 		
-		def disciplina2 = new Disciplina(nome: "Gestão da Qualidade de Software", cargaHoraria: 60, credito: 4)
+		def disciplina2 = new Disciplina(nome: "Gestï¿½o da Qualidade de Software", cargaHoraria: 60, credito: 4)
 		departamento.addToDisciplinas(disciplina2)
 		departamento.save()
 		disciplina2.save()
@@ -102,7 +102,7 @@ class DisciplinaTests {
 		assert departamento.disciplinas.size() == 2
 
 		Departamento departamento2 = new Departamento(nome: "DL", cor: "Laranja")
-		def disciplina3 = new Disciplina(nome: "Português Instrumental", cargaHoraria: 60, credito: 4)
+		def disciplina3 = new Disciplina(nome: "Portuguï¿½s Instrumental", cargaHoraria: 60, credito: 4)
 		departamento2.addToDisciplinas(disciplina3)
 		departamento2.save()
 		disciplina3.save()

@@ -6,7 +6,7 @@ class Disciplina {
 	Integer cargaHoraria
 	Integer credito
 	
-    static hasMany = [itensgrade:ItemGrade]
+    static hasMany = [itensGrade:ItemGrade]
 	static belongsTo = [departamento:Departamento]
 
 	static constraints = {
