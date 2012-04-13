@@ -11,7 +11,7 @@ class ItemGrade {
     }
 	
 	String toString(){
-		return nome
+		return id
 	}
 	
 }
