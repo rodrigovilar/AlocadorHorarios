@@ -26,7 +26,7 @@ class ItemGradeTests {
 	}
 
 	public void testCRUD() {
-
+		Periodo periodo = new Periodo(numero:1)
 		Curso curso = new Curso(nome:"sistemas")
 		curso.addToPeriodos(periodo)
 		curso.save()
@@ -35,7 +35,6 @@ class ItemGradeTests {
 		departamento.addToDisciplinas(disciplina)
 		departamento.save()
 
-		Periodo periodo = new Periodo(1)
 		curso.addToPeriodos(periodo)
 		curso.addToPeriodos(periodo)
 		periodo.save()
