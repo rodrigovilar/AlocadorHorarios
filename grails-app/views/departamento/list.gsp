@@ -40,7 +40,7 @@
 					
 						<td><g:link action="show" id="${departamentoInstance.id}">${fieldValue(bean: departamentoInstance, field: "nome")}</g:link></td>
 					
-						<td style="background-color:${fieldValue(bean: departamentoInstance, field: "cor")} " > ${fieldValue(bean: departamentoInstance, field: "cor")}</td>
+						<td style="background-color:${fieldValue(bean: departamentoInstance, field: "cor")} " > </td>
 					
 						<td>${fieldValue(bean: departamentoInstance, field: "chefe")}</td>
 					
