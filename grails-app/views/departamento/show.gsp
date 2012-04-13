@@ -36,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="cor-label" class="property-label"><g:message code="departamento.cor.label" default="Cor" /></span>
 					
-						<span class="property-value" aria-labelledby="cor-label"><g:fieldValue bean="${departamentoInstance}" field="cor"/></span>
+						<span class="property-value" style="background-color:${fieldValue(bean: departamentoInstance, field: "cor")} " aria-labelledby="cor-label"><g:fieldValue bean="${departamentoInstance}" field="cor"/></span>
 					
 				</li>
 				</g:if>
