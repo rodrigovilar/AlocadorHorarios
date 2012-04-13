@@ -9,7 +9,7 @@ class Telefone {
     }
 	
 	String toString(){
-		return nome
+		return numero
 	}
 	
 }
