@@ -11,8 +11,9 @@ class Disciplina {
 
 	static constraints = {
 		nome()
-		cargaHoraria()
-		credito()
+		cargaHoraria(max:250, min:15)
+		credito (max:25, min:3)
+		 
 	}
 	
 	

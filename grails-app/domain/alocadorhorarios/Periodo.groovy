@@ -8,7 +8,7 @@ class Periodo {
 	static belongsTo = [curso:Curso]
 	
 	static constraints= {
-		numero()
+		numero(min:1, max:15)
 	}
 	
  	String toString(){
