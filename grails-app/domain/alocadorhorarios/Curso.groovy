@@ -8,8 +8,8 @@ class Curso {
 	
     static constraints = {
 		nome()
-		coordenador()
-		viceCoordenador()
+		coordenador(nullable:true)
+		viceCoordenador(nullable:true)
     }
 
 }
