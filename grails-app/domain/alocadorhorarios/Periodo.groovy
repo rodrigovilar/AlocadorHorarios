@@ -10,4 +10,8 @@ class Periodo {
 	static constraints= {
 		numero()
 	}
+	
+ 	String toString(){
+		 return numero
+	 }
 }

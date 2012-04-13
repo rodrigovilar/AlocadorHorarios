@@ -15,4 +15,9 @@ class Departamento {
 		chefe(nullable:true)
 		subchefe(nullable:true)
     }
+	
+	
+	String toString(){
+		return nome
+	}
 }

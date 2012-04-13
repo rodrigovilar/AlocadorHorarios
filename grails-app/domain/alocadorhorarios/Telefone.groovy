@@ -8,4 +8,8 @@ class Telefone {
 		numero(nullable:false)
     }
 	
+	String toString(){
+		return nome
+	}
+	
 }

@@ -14,5 +14,10 @@ class Disciplina {
 		cargaHoraria()
 		credito()
 	}
+	
+	
+	String toString(){
+		return nome
+	}
 
 }
