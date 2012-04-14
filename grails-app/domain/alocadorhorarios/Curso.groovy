@@ -5,11 +5,12 @@ class Curso {
 	String nome
 	Professor coordenador
 	Professor viceCoordenador
+	static hasMany = [periodos:Periodo]
 	
     static constraints = {
 		nome()
-		coordenador()
-		viceCoordenador()
+		coordenador(nullable:true)
+		viceCoordenador(nullable:true)
     }
 
 }
