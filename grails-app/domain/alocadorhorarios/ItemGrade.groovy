@@ -2,7 +2,7 @@ package alocadorhorarios
 
 class ItemGrade {
 	
-	static belongsTo = [Periodo,Departamento]
+	static belongsTo = [periodo:Periodo,disciplina:Disciplina]
 
 	static constraints = {
 	}

@@ -32,7 +32,6 @@ class ItemGradeTests {
 		curso.save()
 
 		Departamento departamento = new Departamento(nome:"Dep", cor:"azul")
-		departamento.addToDisciplinas(disciplina)
 		departamento.save()
 
 		curso.addToPeriodos(periodo)
@@ -52,7 +51,7 @@ class ItemGradeTests {
 		def itensGrade = ItemGrade.list()
 		assert itensGrade.size()== 1
 
-		itemCadastrado = itensGrade
+		def itemCadastrado = itensGrade[0]
 		itemGrade.delete()
 
 		itensGrade = ItemGrade.list()

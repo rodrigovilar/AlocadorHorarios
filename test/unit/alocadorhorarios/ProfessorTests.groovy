@@ -116,9 +116,5 @@ class ProfessorTests {
 
 		assert departamento2.professores.size() == 1
 		assert departamento.professores.size() == 0 
-
-		def professor2 =
-			new Professor(nome: "Prof nome2", matricula: "2", email: "abc2@mail.com")
-		assert !professor2.validate()
 	}
 }
