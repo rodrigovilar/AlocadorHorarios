@@ -7,21 +7,31 @@ import grails.test.mixin.support.*
 class ItemGradeTests {
 
 	public void testValidacao() {
-		def itemGradeSemPeriodo= new ItemGrade()
-		assert !itemGradeSemPeriodo.validate()
+		def itemGradeSemPeriodoDisciplina= new ItemGrade()
+		assert !itemGradeSemPeriodoDisciplina.validate()
 
-		def curso = new Curso (nome:"Sistemas")
-		def periodo = new Periodo(numero:1)
+		Curso curso = new Curso(nome:"Sistema de Informaçao")
+
+		Periodo periodo = new Periodo(numero:3)
 		curso.addToPeriodos(periodo)
+		assert periodo.validate()		
 
 		def departamento = new Departamento(nome:"dep",Cor:"azul")
 		def disciplina = new Disciplina(nome:"corporativos", cargaHoraria:60, credito:4)
 		departamento.addToDisciplinas(disciplina)
 
+		def itemGradeSemPeriodo = new ItemGrade()
+		disciplina.addToItensGrade(itemGradeSemPeriodo)
+		assert !itemGradeSemPeriodo.validate()
+		
+		def itemGradeSemDisciplina = new ItemGrade()
+		periodo.addToItensGrade(itemGradeSemDisciplina)
+		assert !itemGradeSemDisciplina.validate()
+		
 		def itemGrade = new ItemGrade()
 		disciplina.addToItensGrade(itemGrade)
 		periodo.addToItensGrade(itemGrade)
-
+		
 		assert itemGrade.validate()
 	}
 
@@ -34,7 +44,6 @@ class ItemGradeTests {
 		Departamento departamento = new Departamento(nome:"Dep", cor:"azul")
 		departamento.save()
 
-		curso.addToPeriodos(periodo)
 		curso.addToPeriodos(periodo)
 		periodo.save()
 

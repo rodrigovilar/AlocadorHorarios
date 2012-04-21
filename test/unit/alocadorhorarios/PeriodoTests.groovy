@@ -26,7 +26,8 @@ class PeriodoTests {
 		
 		Curso curso = new Curso(nome: "computacao")
 		Periodo periodoVazio = new Periodo(numero:2)
-		curso.addToPeriodos(periodoVazio)
+	
+			curso.addToPeriodos(periodoVazio)
 		assert periodoVazio.validate()
 		
 		Periodo periodoValido = new Periodo(numero:3)
