@@ -1,10 +1,10 @@
 package alocadorhorarios
 
 class PeriodoLetivo {
-	
+
 	Integer ano
 	Integer numero
-	
+
 	static hasMany = [turma:Turma]
 
     static constraints = {
