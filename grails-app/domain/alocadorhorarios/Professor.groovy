@@ -7,7 +7,7 @@ class Professor {
 	String email
 	byte[] imagem
 	
-	static hasMany = [telefones:Telefone]
+	static hasMany = [telefones:Telefone, turmas:Turma]
 	static belongsTo = [departamento:Departamento]
 	
     static constraints = {
