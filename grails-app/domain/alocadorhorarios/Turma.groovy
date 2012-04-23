@@ -2,7 +2,8 @@ package alocadorhorarios
 
 class Turma {
 	
-	static hasMany = [professor:Professor]
+	static hasMany = [professores:Professor]
+	static belongsTo = [periodoLetivo:PeriodoLetivo, disciplina:Disciplina]
 	
     static constraints = {
     }

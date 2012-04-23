@@ -5,7 +5,7 @@ class PeriodoLetivo {
 	Integer ano
 	Integer numero
 
-	static hasMany = [turma:Turma]
+	static hasMany = [turmas:Turma]
 
     static constraints = {
 		ano()
