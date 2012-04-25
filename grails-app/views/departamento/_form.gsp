@@ -1,5 +1,10 @@
 <%@ page import="alocadorhorarios.Departamento" %>
+ 
 
+<g:javascript src="${resource(dir:'js', file:'ColorP.js')}" />
+
+ 
+<r:require module="jquery-ui" />
 
 <div class="fieldcontain ${hasErrors(bean: departamentoInstance, field: 'nome', 'error')} ">
 	<label for="nome">
@@ -8,15 +13,16 @@
 	</label>
 	<g:textField name="nome" value="${departamentoInstance?.nome}"/>
 </div>
+ 
 
 <div class="fieldcontain ${hasErrors(bean: departamentoInstance, field: 'cor', 'error')} ">
 	<label for="cor">
 		<g:message code="departamento.cor.label" default="Cor" />
 		
 	</label>
-	<g:textField class="iColorPicker" id="mycolor" name="cor" value="${departamentoInstance?.cor}"/> 
+		<g:textField  class="iColorPicker" id="mycolor" name="cor" value="${departamentoInstance?.cor}"/> 
 </div>
-
+ 
 <div class="fieldcontain ${hasErrors(bean: departamentoInstance, field: 'chefe', 'error')} ">
 	<label for="chefe">
 		<g:message code="departamento.chefe.label" default="Chefe" />
@@ -55,20 +61,27 @@
 		<g:message code="departamento.professores.label" default="Professores" />
 		
 	</label>
-	<g:select name="professores" from="${alocadorhorarios.Professor.list()}" multiple="multiple" optionKey="id" size="5" value="${departamentoInstance?.professores*.id}" class="many-to-many"/>
+	
+<ul class="one-to-many">
+<g:each in="${departamentoInstance?.professores?}" var="p">
+    <li><g:link controller="professor" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="professor" action="create" params="['departamento.id': departamentoInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'professor.label', default: 'Professor')])}</g:link>
+</li>
+</ul>
+
 </div>
 
 
 
-<g:javascript library="jquery"/>
-<r:require module="jquery-ui" />
 
+<script type="text/javascript">
+
+var imageUrl = '${resource(dir: 'images', file: 'color.png')}';
  
 
-
-<g:javascript>
-var imageUrl = '${resource(dir: 'images', file: 'color.png')}';
-function iColorShow(id, id2) {
+ function iColorShow(id, id2) {
 	var eICP = jQuery("#" + id2).position();
 	jQuery("#iColorPicker").css({
 		'top' : eICP.top + (jQuery("#" + id).outerHeight()) + "px",
@@ -126,8 +139,8 @@ this.iColorPicker = function() {
 								jQuery("#iColorPicker").fadeOut()
 							}).appendTo("body");
 							jQuery('table.pickerTable td').css({
-								'width' : '12px',
-								'height' : '14px',
+								'width' : '2px',
+								'height' : '2px',
 								'border' : '1px solid #000',
 								'cursor' : 'pointer'
 							});
@@ -159,8 +172,14 @@ this.iColorPicker = function() {
 												+ '" style="border:0;margin:0 0 0 3px" align="absmiddle" ></a>')
 					})
 };
-jQuery(function() {
+ 
+func: jQuery(function() {
 	iColorPicker()
 })
  
-</g:javascript>
+ 
+ 
+</script>
+
+
+
