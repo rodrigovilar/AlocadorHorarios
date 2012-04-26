@@ -11,7 +11,7 @@ class CursoController {
 		
 		for (i = 1; i <= curso.getQuantidadeDePeriodos() ; i++) {
 			Periodo p = new Periodo(i)
-			curso.periodos.add(p)
+			curso.periodos(p)
 		} 
 	}
 }
