@@ -18,7 +18,7 @@ class CursoTests {
 		
 			def professor2 =
 						new Professor(nome: "Rodrigo Vilar", matricula: "123", email: "rodrigo@dce.ufpb.br")
-		Curso curso = new Curso(nome:"Sistema de Informaçao", coordenador:professor,viceCoordenador : professor2)
+		Curso curso = new Curso(nome:"Sistema de Informaï¿½ao", coordenador:professor,viceCoordenador : professor2)
 		curso.save()
 		
 		
@@ -42,8 +42,6 @@ class CursoTests {
 		
 		cursos = Curso.list()
 		assert cursos.size() == 0
-   
-		curso.count()
 	}
 
 	void testValidacaoCurso() {
@@ -65,7 +63,7 @@ class CursoTests {
 		def cursoSemCoordenador = new Curso(nome:"Contabilidade",vicecoordenador: professor)
 	    assert cursoSemCoordenador.validate()
 		
-		def cursoSemViceCoordenador = new Curso (nome :" Física", coordenador : professor2) 
+		def cursoSemViceCoordenador = new Curso (nome :" Fï¿½sica", coordenador : professor2) 
 		assert cursoSemViceCoordenador.validate()
 		
 		}
