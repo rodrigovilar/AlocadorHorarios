@@ -39,6 +39,8 @@
 	<g:select id="subchefe" name="subchefe.id" from="${alocadorhorarios.Professor.list()}" optionKey="id" value="${departamentoInstance?.subchefe?.id}" class="many-to-one" noSelection="['null': '']"/>
 </div>
 
+
+<g:if test="${departamentoInstance?.id}">
 <div class="fieldcontain ${hasErrors(bean: departamentoInstance, field: 'disciplinas', 'error')} ">
 	<label for="disciplinas">
 		<g:message code="departamento.disciplinas.label" default="Disciplinas" />
@@ -55,7 +57,10 @@
 </ul>
 
 </div>
+</g:if>
 
+
+<g:if test="${departamentoInstance?.id}">
 <div class="fieldcontain ${hasErrors(bean: departamentoInstance, field: 'professores', 'error')} ">
 	<label for="professores">
 		<g:message code="departamento.professores.label" default="Professores" />
@@ -72,7 +77,7 @@
 </ul>
 
 </div>
-
+</g:if>
 
 
 
