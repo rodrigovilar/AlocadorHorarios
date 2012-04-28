@@ -7,14 +7,7 @@ import alocadorhorarios.Departamento;
 import com.grailsrocks.functionaltest.*
 
 class DepartamentoFunctionalTests extends BrowserTestCase {
-    void testSomeWebsiteFeature() {
-        // Here call get(uri) or post(uri) to start the session
-        // and then use the custom assertXXXX calls etc to check the response
-        //
-        // get('/something')
-        // assertStatus 200
-        // assertContentContains 'the expected text'
-    }
+    
 	void testList(){
 		get('/departamento/list')
 		assertContentContains "List"
@@ -55,6 +48,36 @@ class DepartamentoFunctionalTests extends BrowserTestCase {
 		assertContentContains "List"
 		assertStatus 200
 		
+		click "dcn"
+		click "Edit"
+		
+		click "addDisciplinas"
+		
+		form {
+			nome "poo"
+			cargaHoraria "60"
+			credito "4"
+			click "create"
+		}
+		assertContentContains "poo"
+		assertContentContains "60"
+		assertContentContains "4"
+		assertStatus 200
+		
+		click "dcn"
+		click "Edit"
+		
+		click "addProfessores"
+		
+		form {
+			matricula "102030"
+			nome "john"
+			email "john@x.com"
+			click "create"
+		}
+		assertContentContains "102030"
+		assertContentContains "john"
+		assertContentContains "john@x.com"
+		assertStatus 200
 	}
-	
 }

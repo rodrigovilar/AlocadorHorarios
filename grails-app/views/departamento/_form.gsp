@@ -50,7 +50,7 @@
     <li><g:link controller="disciplina" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">
-<g:link controller="disciplina" action="create" params="['departamento.id': departamentoInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'disciplina.label', default: 'Disciplina')])}</g:link>
+<g:link  elementId="addDisciplinas" controller="disciplina" action="create" params="['departamento.id': departamentoInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'disciplina.label', default: 'Disciplina')])}</g:link>
 </li>
 </ul>
 
@@ -67,7 +67,7 @@
     <li><g:link controller="professor" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">
-<g:link controller="professor" action="create" params="['departamento.id': departamentoInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'professor.label', default: 'Professor')])}</g:link>
+<g:link elementId="addProfessores" controller="professor" action="create" params="['departamento.id': departamentoInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'professor.label', default: 'Professor')])}</g:link>
 </li>
 </ul>
 
