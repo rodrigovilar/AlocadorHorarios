@@ -34,25 +34,6 @@
 	<g:select id="departamento" name="departamento.id" from="${alocadorhorarios.Departamento.list()}" optionKey="id" required="" value="${disciplinaInstance?.departamento?.id}" class="many-to-one"/>
 </div>
 
-<g:if test="${disciplinaInstance?.id}">
-<div class="fieldcontain ${hasErrors(bean: disciplinaInstance, field: 'itensGrade', 'error')} ">
-	<label for="itensGrade">
-		<g:message code="disciplina.itensGrade.label" default="Itens Grade" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${disciplinaInstance?.itensGrade?}" var="i">
-    <li><g:link controller="itemGrade" action="show" id="${i.id}">${i?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="itemGrade" action="create" params="['disciplina.id': disciplinaInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'itemGrade.label', default: 'ItemGrade')])}</g:link>
-</li>
-</ul>
-
-</div>
-</g:if>
-
 
 <g:if test="${disciplinaInstance?.id}">
 <div class="fieldcontain ${hasErrors(bean: disciplinaInstance, field: 'turmas', 'error')} ">

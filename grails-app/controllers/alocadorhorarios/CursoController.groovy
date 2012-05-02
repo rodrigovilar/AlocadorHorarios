@@ -26,7 +26,7 @@ class CursoController {
 		
 		if (!cursoInstance.id) {
 			
-			for (int i = 1; i <= params.quantidade ; i++) {
+			for (int i = 1; i <= params.int('quantidade'); i++) {
 						cursoInstance.addToPeriodos(new Periodo(numero:i))
 					}
 		}
