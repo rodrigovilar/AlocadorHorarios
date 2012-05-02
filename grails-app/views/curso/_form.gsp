@@ -2,7 +2,6 @@
 <%@ page import="alocadorhorarios.Curso" %>
 
 
-
 <div class="fieldcontain ${hasErrors(bean: cursoInstance, field: 'nome', 'error')} ">
 	<label for="nome">
 		<g:message code="curso.nome.label" default="Nome" />
@@ -10,6 +9,7 @@
 	</label>
 	<g:textField name="nome" value="${cursoInstance?.nome}"/>
 </div>
+
 
 <div class="fieldcontain ${hasErrors(bean: cursoInstance, field: 'coordenador', 'error')} ">
 	<label for="coordenador">
@@ -21,6 +21,7 @@
 optionKey="id" value="${cursoInstance?.coordenador?.id}" class="many-to-one" noSelection="['null': '']"/>
 </div>
 
+
 <div class="fieldcontain ${hasErrors(bean: cursoInstance, field: 'viceCoordenador', 'error')} ">
 	<label for="viceCoordenador">
 		<g:message code="curso.viceCoordenador.label" default="Vice Coordenador" />
@@ -31,6 +32,7 @@ optionKey="id" value="${cursoInstance?.coordenador?.id}" class="many-to-one" noS
 optionKey="id" value="${cursoInstance?.viceCoordenador?.id}" class="many-to-one" noSelection="['null': '']"/>
 </div>
 
+
 <div class="fieldcontain ${hasErrors(bean: cursoInstance, field: 'quantidade', 'error')}" >
 	<label for="quantidade">
 		<g:message code="curso.quantidade.label" default="Quantidade"/>
@@ -38,6 +40,7 @@ optionKey="id" value="${cursoInstance?.viceCoordenador?.id}" class="many-to-one"
 	</label>
 	<g:textField type="number" name="quantidade"/>	
 </div>
+
 
 <g:if test="${cursoInstance?.id}">
 <div class="fieldcontain ${hasErrors(bean: cursoInstance, field: 'periodos', 'error')} ">
