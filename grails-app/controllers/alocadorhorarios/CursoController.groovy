@@ -1,4 +1,5 @@
 package alocadorhorarios
+import grails.converters.JSON
 
 import org.springframework.dao.DataIntegrityViolationException
 
@@ -113,4 +114,10 @@ class CursoController {
             redirect(action: "show", id: params.id)
         }
     }
+	
+	def PeriodoPorCurso() {
+		def cr = Curso.get(params.int('idCurso'))
+		render cr.periodos as JSON
+	}
 }
+
