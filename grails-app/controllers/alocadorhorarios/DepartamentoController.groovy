@@ -1,4 +1,5 @@
 package alocadorhorarios
+import grails.converters.JSON
 
 import org.springframework.dao.DataIntegrityViolationException
 
@@ -100,4 +101,8 @@ class DepartamentoController {
             redirect(action: "show", id: params.id)
         }
     }
+	def DisciplinasporDepartamento() {
+		def d = Depapartamento.get(params.int('idDepartamento'))
+		render d.disciplinas as JSON
+	}
 }
