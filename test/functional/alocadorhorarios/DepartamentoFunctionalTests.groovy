@@ -67,6 +67,23 @@ class DepartamentoFunctionalTests extends BrowserTestCase {
 		click "dcn"
 		click "Edit"
 		
+		click "addDisciplinas"
+				
+		form{
+			nome "banco de dados"
+			cargaHoraria "60"
+			credito "4"
+			click "create"
+		}
+		assertContentContains "banco de dados"
+		assertContentContains "60"
+		assertContentContains "4"
+		assertStatus 200
+		
+		
+		click "dcn"
+		click "Edit"
+		
 		click "addProfessores"
 		
 		form {
@@ -79,5 +96,41 @@ class DepartamentoFunctionalTests extends BrowserTestCase {
 		assertContentContains "john"
 		assertContentContains "john@x.com"
 		assertStatus 200
+		
+		/*criar outro professor
+		 * settar chefe e subchefe
+		 *
+		
+		click "dcn"
+		click "Edit"
+		
+		form {
+			nome "dcn"
+			cor "verde"
+			chefe {
+				id "fulano"
+			}
+			subchefe{
+				id "jose joao"
+			}
+			click "_action_update"
+		}
+		assertContentContains "dcn"
+		assertContentContains "verde"
+		assertContentContains "fulano"
+		assertContentContains "jose joao"
+		assertContentContains "updated"
+		assertStatus 200
+
+		/*
+		click "chefe"
+		click "Alterar"
+		assertContentContains "dcn"
+		assertContentContains "Edit"
+		assertContentContains "chefe"
+		assertContentContains "Alterar"
+		assertStatus 200
+	
+		*/		
 	}
 }
