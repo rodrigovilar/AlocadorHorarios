@@ -1,6 +1,6 @@
 package alocadorhorarios
 
-class PeriodoController {
+class PeriodoLetivoController {
 
     def scaffold = true
 }

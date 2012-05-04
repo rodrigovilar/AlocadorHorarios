@@ -11,7 +11,7 @@ import grails.test.mixin.support.*
 class ProfessorTests { 
 
 	void testValidacaoProfessor() {
-
+ 
 		def professorSemDepartamento = new Professor()
 		assert !professorSemDepartamento.validate()
 

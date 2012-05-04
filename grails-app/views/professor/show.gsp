@@ -4,8 +4,8 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<link rel="stylesheet" href="${resource(dir: 'css', file: 'style.css')}" type="text/css">
 		<g:set var="entityName" value="${message(code: 'professor.label', default: 'Professor')}" />
+			<link rel="stylesheet" href="${resource(dir: 'css', file: 'style.css')}" type="text/css">
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
@@ -24,20 +24,20 @@
 			</g:if>
 			<ol class="property-list professor">
 			
-				<g:if test="${professorInstance?.nome}">
-				<li class="fieldcontain">
-					<span id="nome-label" class="property-label"><g:message code="professor.nome.label" default="Nome" /></span>
-					
-						<span class="property-value" aria-labelledby="nome-label"><g:fieldValue bean="${professorInstance}" field="nome"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${professorInstance?.matricula}">
 				<li class="fieldcontain">
 					<span id="matricula-label" class="property-label"><g:message code="professor.matricula.label" default="Matricula" /></span>
 					
 						<span class="property-value" aria-labelledby="matricula-label"><g:fieldValue bean="${professorInstance}" field="matricula"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${professorInstance?.nome}">
+				<li class="fieldcontain">
+					<span id="nome-label" class="property-label"><g:message code="professor.nome.label" default="Nome" /></span>
+					
+						<span class="property-value" aria-labelledby="nome-label"><g:fieldValue bean="${professorInstance}" field="nome"/></span>
 					
 				</li>
 				</g:if>
@@ -50,19 +50,23 @@
 					
 				</li>
 				</g:if>
-		
-				<g:if test="${professorInstance?.imagem}">					
+			
+				<g:if test="${professorInstance?.imagem}">
 				<li class="fieldcontain">
-					<span id="imagem-label" class="property-label">
-					
-					<g:message code="professor.imagem.label" default="Imagem" /></span>
-					 
-					<img alt="" class="imgDoubleBorderLightGray" width="100" height="100"  style="margin-left: 15px" src="/AlocadorHorarios/professor/imagemProfessor/${professorInstance.id}">
-					
-					 
-				</li>			
+					<span id="imagem-label" class="property-label"><g:message code="professor.imagem.label" default="Imagem" /></span>
+						<img alt="" class="imgDoubleBorderLightGray" width="100" height="100"  style="margin-left: 15px" src="/AlocadorHorarios/professor/imagemProfessor/${professorInstance.id}">
+				</li>
 				</g:if>
-				
+			
+				<g:if test="${professorInstance?.departamento}">
+				<li class="fieldcontain">
+					<span id="departamento-label" class="property-label"><g:message code="professor.departamento.label" default="Departamento" /></span>
+					
+						<span class="property-value" aria-labelledby="departamento-label"><g:link controller="departamento" action="show" id="${professorInstance?.departamento?.id}">${professorInstance?.departamento?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${professorInstance?.telefones}">
 				<li class="fieldcontain">
 					<span id="telefones-label" class="property-label"><g:message code="professor.telefones.label" default="Telefones" /></span>

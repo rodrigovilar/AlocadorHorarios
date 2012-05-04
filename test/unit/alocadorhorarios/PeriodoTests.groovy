@@ -16,13 +16,18 @@ class PeriodoTests {
 		Periodo numeroInvalido = new Periodo()
 		assert !numeroInvalido.validate()
 		
-		Periodo periodoSemCurso = new Periodo()
-		assert !periodoSemCurso.validate()
+		/*O teste abaixo foi alterado:
+		 * Cria um periodo passando um numero no construtor e valida o mesmo
+		 */
+		
+		Periodo periodoSemCurso = new Periodo(numero:5)
+		assert periodoSemCurso.validate()
 		
 		
 		Curso curso = new Curso(nome: "computacao")
 		Periodo periodoVazio = new Periodo(numero:2)
-		curso.addToPeriodos(periodoVazio)
+	
+			curso.addToPeriodos(periodoVazio)
 		assert periodoVazio.validate()
 		
 		Periodo periodoValido = new Periodo(numero:3)
@@ -40,29 +45,22 @@ class PeriodoTests {
 		curso.addToPeriodos(periodo)
 		periodo.save()
 		
-		def p2 = Periodo.list()
-		assert p2.size() == 1
+		def novoPeriodo = new Periodo(numero: 5)
+		curso.addToPeriodos(novoPeriodo)
+		novoPeriodo.save()
 		
-		def periodoCadastrado = p2[0]
+		def p = Periodo.list()
+		assert p.size() == 2
+		
+		def periodoCadastrado = p[0]
 		assertEquals(periodo.numero, periodoCadastrado.numero)
 		
-		periodo.numero = 3
-		periodo.save()
-		
-		def p3 = Periodo.list()
-		assert p3.size() == 1
-		
-		periodoCadastrado = p3[0]
-		assertEquals(periodo.numero, periodoCadastrado.numero)
 		
 		periodo.delete()
+		novoPeriodo.delete()
+		p = Periodo.list()
+		assert p.size() == 0
 		
-		p3 = Periodo.list()
-		assert p3.size() == 0
-		
-		p2 = Periodo.list()
-		assert p2.size() == 0
-	
 	}
 	
 }

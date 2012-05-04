@@ -9,7 +9,7 @@ class ProfessorController {
     def index() {
         redirect(action: "list", params: params)
     }
-	
+
 	def imagemProfessor ={
 		if (params.id){
 			Professor professor = Professor.findById(params.id)
@@ -20,7 +20,7 @@ class ProfessorController {
 			 
 		}
 	}
-
+	
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [professorInstanceList: Professor.list(params), professorInstanceTotal: Professor.count()]
