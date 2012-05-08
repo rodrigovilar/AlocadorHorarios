@@ -96,41 +96,5 @@ class DepartamentoFunctionalTests extends BrowserTestCase {
 		assertContentContains "john"
 		assertContentContains "john@x.com"
 		assertStatus 200
-		
-		/*criar outro professor
-		 * settar chefe e subchefe
-		 *
-		
-		click "dcn"
-		click "Edit"
-		
-		form {
-			nome "dcn"
-			cor "verde"
-			chefe {
-				id "fulano"
-			}
-			subchefe{
-				id "jose joao"
-			}
-			click "_action_update"
-		}
-		assertContentContains "dcn"
-		assertContentContains "verde"
-		assertContentContains "fulano"
-		assertContentContains "jose joao"
-		assertContentContains "updated"
-		assertStatus 200
-
-		/*
-		click "chefe"
-		click "Alterar"
-		assertContentContains "dcn"
-		assertContentContains "Edit"
-		assertContentContains "chefe"
-		assertContentContains "Alterar"
-		assertStatus 200
-	
-		*/		
 	}
 }
