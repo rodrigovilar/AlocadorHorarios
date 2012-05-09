@@ -16,15 +16,15 @@ class DisciplinaTests {
 		departamento.addToDisciplinas(disciplinaVazia)
 		assert !disciplinaVazia.validate()
 
-		Disciplina cargaHorariaInvalida = new Disciplina(nome: "Matem�tica Elementar", cargaHoraria: "asdfg", credito: 4)
+		Disciplina cargaHorariaInvalida = new Disciplina(nome: "Matemática Elementar", cargaHoraria: "asdfg", credito: 4)
 		departamento.addToDisciplinas(cargaHorariaInvalida)
 		assert !cargaHorariaInvalida.validate()
 
-		Disciplina creditoInvalido = new Disciplina(nome: "Matem�tica Elementar", cargaHoraria: 60, credito: "asdfg")
+		Disciplina creditoInvalido = new Disciplina(nome: "Matemática Elementar", cargaHoraria: 60, credito: "asdfg")
 		departamento.addToDisciplinas(creditoInvalido)
 		assert !creditoInvalido.validate()
 
-		Disciplina disciplinaValida = new Disciplina(nome: "Matem�tica Elementar", cargaHoraria: 60, credito: 4)
+		Disciplina disciplinaValida = new Disciplina(nome: "Matemática Elementar", cargaHoraria: 60, credito: 4)
 		departamento.addToDisciplinas(disciplinaValida)
 		assert disciplinaValida.validate()
 	}

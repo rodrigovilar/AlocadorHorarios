@@ -34,6 +34,8 @@
 	<input type="file" id="imagem" name="imagem" />
 </div>
 
+
+
 <div class="fieldcontain ${hasErrors(bean: professorInstance, field: 'departamento', 'error')} required">
 	<label for="departamento">
 		<g:message code="professor.departamento.label" default="Departamento" />
@@ -42,6 +44,8 @@
 	<g:select id="departamento" name="departamento.id" from="${alocadorhorarios.Departamento.list()}" optionKey="id" required="" value="${professorInstance?.departamento?.id}" class="many-to-one"/>
 </div>
 
+
+<g:if test="${professorInstance?.id}">
 <div class="fieldcontain ${hasErrors(bean: professorInstance, field: 'telefones', 'error')} ">
 	<label for="telefones">
 		<g:message code="professor.telefones.label" default="Telefones" />
@@ -58,4 +62,4 @@
 </ul>
 
 </div>
-
+</g:if>
