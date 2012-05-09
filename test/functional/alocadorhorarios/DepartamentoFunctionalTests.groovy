@@ -67,6 +67,23 @@ class DepartamentoFunctionalTests extends BrowserTestCase {
 		click "dcn"
 		click "Edit"
 		
+		click "addDisciplinas"
+				
+		form{
+			nome "banco de dados"
+			cargaHoraria "60"
+			credito "4"
+			click "create"
+		}
+		assertContentContains "banco de dados"
+		assertContentContains "60"
+		assertContentContains "4"
+		assertStatus 200
+		
+		
+		click "dcn"
+		click "Edit"
+		
 		click "addProfessores"
 		
 		form {
