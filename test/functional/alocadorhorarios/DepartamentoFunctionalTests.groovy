@@ -96,5 +96,23 @@ class DepartamentoFunctionalTests extends BrowserTestCase {
 		assertContentContains "john"
 		assertContentContains "john@x.com"
 		assertStatus 200
+		
+		click "dcn"
+		click "Edit"
+
+		form {
+			selects['chefe.id'].select "1"
+			selects['subchefe.id'].select "1"
+			click "_action_update"
+		}
+		assertStatus 200
+		
+		click "Departamento List"
+		assertContentContains "dcn"
+		assertContentContains "verde"
+		assertContentContains "john"
+		assertContentContains "List"
+		assertStatus 200
+
 	}
 }

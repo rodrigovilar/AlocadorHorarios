@@ -40,5 +40,8 @@ class DisciplinaFunctionalTests extends BrowserTestCase {
 		assertContentContains "4"
 		assertContentContains "updated"
 		assertStatus 200
+		
+		click "projeto avancado"
+		assertStatus 200
 	}
 }

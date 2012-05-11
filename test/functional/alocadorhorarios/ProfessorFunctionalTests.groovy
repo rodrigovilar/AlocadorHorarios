@@ -50,7 +50,9 @@ class ProfessorFunctionalTests extends BrowserTestCase {
 		click "809088"
 		assertStatus 200
 		
-		click "edit"
+		click "Edit"
+		assertStatus 200
+		
 		click "addTelefones"
 		form {
 			numero "8399998989"
@@ -59,7 +61,5 @@ class ProfessorFunctionalTests extends BrowserTestCase {
 		assertContentContains "8399998989"
 		assertContentContains "created"
 		assertStatus 200
-
-		
 	 }
 }
