@@ -9,6 +9,8 @@ class Disciplina {
     static hasMany = [itensGrade:ItemGrade, turmas:Turma]
 	static belongsTo = [departamento:Departamento]
 
+	
+	
 	static constraints = {
 		nome()
 		cargaHoraria(max:250, min:15)

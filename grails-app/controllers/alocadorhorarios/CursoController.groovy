@@ -116,7 +116,7 @@ class CursoController {
     }
 	
 	def PeriodoPorCurso() {
-		def cr = Curso.get(params.int('idCurso'))
+		def cr = Curso.get(params.int('id'))
 		render cr.periodos as JSON
 	}
 }
