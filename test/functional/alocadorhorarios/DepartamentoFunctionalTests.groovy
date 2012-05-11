@@ -18,12 +18,12 @@ class DepartamentoFunctionalTests extends BrowserTestCase {
 		assertStatus 200
 		
 		form {
-			nome "dce"
-			cor "amarelo"
+			nome "Exatas"
+			cor "branco"
 			click "create"
 		}
-		assertContentContains "dce"
-		assertContentContains "amarelo"
+		assertContentContains "Exatas"
+		assertContentContains "branco"
 		assertContentContains "created"
 		assertStatus 200
 		
@@ -32,23 +32,23 @@ class DepartamentoFunctionalTests extends BrowserTestCase {
 		assertStatus 200
 		
 		form {
-			nome "dcn"
-			cor "verde"
+			nome "dxu"
+			cor "preto"
 			click "_action_update"
 		}
 		
-		assertContentContains "dcn"
-		assertContentContains "verde"
+		assertContentContains "dxu"
+		assertContentContains "preto"
 		assertContentContains "updated"
 		assertStatus 200
 		
 		click "Departamento List"
-		assertContentContains "dcn"
-		assertContentContains "verde"
+		assertContentContains "dxu"
+		assertContentContains "preto"
 		assertContentContains "List"
 		assertStatus 200
 		
-		click "dcn"
+		click "dxu"
 		click "Edit"
 		
 		click "addDisciplinas"
@@ -64,7 +64,7 @@ class DepartamentoFunctionalTests extends BrowserTestCase {
 		assertContentContains "4"
 		assertStatus 200
 		
-		click "dcn"
+		click "dxu"
 		click "Edit"
 		
 		click "addDisciplinas"
@@ -81,23 +81,23 @@ class DepartamentoFunctionalTests extends BrowserTestCase {
 		assertStatus 200
 		
 		
-		click "dcn"
+		click "dxu"
 		click "Edit"
 		
 		click "addProfessores"
 		
 		form {
-			matricula "102030"
-			nome "john"
-			email "john@x.com"
+			matricula "102033"
+			nome "Manoel"
+			email "manoel@gmail.com"
 			click "create"
 		}
-		assertContentContains "102030"
-		assertContentContains "john"
-		assertContentContains "john@x.com"
+		assertContentContains "102033"
+		assertContentContains "Manoel"
+		assertContentContains "manoel@gmail.com"
 		assertStatus 200
 		
-		click "dcn"
+		click "dxu"
 		click "Edit"
 
 		form {
@@ -108,9 +108,9 @@ class DepartamentoFunctionalTests extends BrowserTestCase {
 		assertStatus 200
 		
 		click "Departamento List"
-		assertContentContains "dcn"
-		assertContentContains "verde"
-		assertContentContains "john"
+		assertContentContains "dxu"
+		assertContentContains "preto"
+		assertContentContains "Manoel"
 		assertContentContains "List"
 		assertStatus 200
 
