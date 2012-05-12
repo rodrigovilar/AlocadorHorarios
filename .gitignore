@@ -4,3 +4,5 @@
 .classpath
 .settings
 stacktrace.log
+/devDb.h2.db
+/devDb.lock.db
