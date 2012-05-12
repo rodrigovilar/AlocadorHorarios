@@ -102,7 +102,7 @@ class DepartamentoController {
         }
     }
 	def DisciplinasporDepartamento() {
-		def d = Depapartamento.get(params.int('idDepartamento'))
+		def d = Departamento.get(params.int('id'))
 		render d.disciplinas as JSON
 	}
 }

@@ -1,18 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="alocadorhorarios.Departamento"%>
 <%@page import="java.awt.event.ItemEvent"%>
 <html>
 <head>
 
 <title>Alocador Disciplinas</title>
- 
+
 <script type="text/javascript"
 	src="${resource(dir: 'js', file: 'jquery-1.7.2.min.js')}"></script>
 <script type="text/javascript"
 	src="${resource(dir: 'js', file: 'jquery.easyui.min.js')}"></script>
- 
+
 <style type="text/css">
-
-
 .left {
 	width: 120px;
 	float: left;
@@ -28,9 +27,11 @@
 	-webkit-border-radius: 10px; /*Para Safari e Chrome */
 	border-radius: 10px; /* Para Opera 10.5+*/
 }
+ 
 
 .left td {
 	background: #eee;
+	 
 }
 
 .right {
@@ -105,6 +106,10 @@
 		});
 	});
 </script>
+
+
+
+
 </head>
 <body>
 	<div style="width: 750px; border: 1px;">
@@ -122,37 +127,66 @@
 			</table>
 		</div>
 		<div class="right">
-				<table>
-			<tr>
-				<td class="blank"></td>
-				<td class="title">1º Período</td>
-				<td class="title">2º Período</td>
-				<td class="title">3º Período</td>
-				<td class="title">4º Período</td>
-				<td class="title">5º Período</td>
-				<td class="title">6º Período</td>
-				<td class="title">7º Período</td>
-				<td class="title">8º Período</td>
+			<table>
+			
+			 
+				<g:select id="select" optionKey="id" optionValue="nome"
+					name="curso.nome" from="${cursos}" />
+
+
+				<tr>
 				 
+					<td class="blank"></td>
+					<td class="title">1º Período</td>
+					<td class="title">2º Período</td>
+					<td class="title">3º Período</td>
+					<td class="title">4º Período</td>
+					<td class="title">5º Período</td>
+					<td class="title">6º Período</td>
+					<td class="title">7º Período</td>
+					<td class="title">8º Período</td>
+
+
+
+				</tr>
 				
-				 
-			</tr>
-			<tr>
-				<td class="time">Sistemas</td>
-				<td class="drop"></td>
-				<td class="drop"></td>
-				<td class="drop"></td>
-				<td class="drop"></td>
-				<td class="drop"></td>
-				<td class="drop"></td>
-				<td class="drop"></td>
-				<td class="drop"></td>
-				 
-				
-			</tr>
-		
-		</table>
+				<g:each var="i" in="${1..<11 }">
+					<tr>
+					 
+						<td class="time">Disciplina-${i}</td>
+						<td class="drop"></td>
+						<td class="drop"></td>
+						<td class="drop"></td>
+						<td class="drop"></td>
+						<td class="drop"></td>
+						<td class="drop"></td>
+						<td class="drop"></td>
+						<td class="drop"></td>
+
+					</tr>
+				</g:each>
+			</table>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+		$("#selectDepartamento").change(
+				function() {
+
+					var selecionado = $("#selectDepartamento").val();
+					window.alert(selecionado);
+					$.getJSON(
+							'/AlocadorHorarios/departamento/DisciplinasporDepartamento/'
+									+ selecionado, function(data) {
+
+								var items = [];
+
+								//			  $.each(data, function(key, val) {
+								//			    items.push('<li id="' + key + '">' + val + '</li>');
+								//			  });
+
+							});
+				});
+	</script>
 </body>
 </html>
