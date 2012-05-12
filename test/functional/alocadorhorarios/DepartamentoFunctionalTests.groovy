@@ -113,6 +113,16 @@ class DepartamentoFunctionalTests extends BrowserTestCase {
 		assertContentContains "Manoel"
 		assertContentContains "List"
 		assertStatus 200
+		
+		click "dxu"
+		form {
+			click "_action_delete"
+		}
+		assertStatus 200
+		
+		assertContentContains "deleted"
+		assertStatus 200
+		
 
 	}
 }

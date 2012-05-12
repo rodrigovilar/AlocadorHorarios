@@ -46,5 +46,14 @@ class DisciplinaFunctionalTests extends BrowserTestCase {
 		
 		click "corporativo"
 		assertStatus 200
+		
+		click "corporativo"
+		form {
+			click "_action_delete"
+		}
+		assertStatus 200
+		
+		assertContentContains "deleted"
+		assertStatus 200
 	}
 }
