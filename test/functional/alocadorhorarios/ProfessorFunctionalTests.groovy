@@ -62,7 +62,7 @@ class ProfessorFunctionalTests extends BrowserTestCase {
 		assertContentContains "created"
 		assertStatus 200
 		
-		click "809088"
+		
 		form {
 			click "_action_delete"
 		}
@@ -70,5 +70,6 @@ class ProfessorFunctionalTests extends BrowserTestCase {
 		
 		assertContentContains "deleted"
 		assertStatus 200
+		
 	 }
 }
