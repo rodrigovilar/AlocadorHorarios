@@ -7,7 +7,16 @@ class ItemGradeController {
 	
 	
 	def periodo = {
-		[departamentos:Departamento.list(), disciplinas:Disciplina.list()]
+		[departamentos:Departamento.list(), disciplinas:Disciplina.list(), cursos:Curso.list()]
+		
+		 
+		
+	}
+	
+	def selectDisciplina =  {
+		def departamento = Departamento.get(params.id)
+		render departamento?.disciplinas as JSON
+		
 	}
 
 	def SalvarItemGrade(){
