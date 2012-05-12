@@ -47,5 +47,29 @@ class ProfessorFunctionalTests extends BrowserTestCase {
 		assertContentContains "List"
 		assertStatus 200
 		
+		click "809088"
+		assertStatus 200
+		
+		click "Edit"
+		assertStatus 200
+		
+		click "addTelefones"
+		form {
+			numero "8399998989"
+			click "create"
+		}
+		assertContentContains "8399998989"
+		assertContentContains "created"
+		assertStatus 200
+		
+		
+		form {
+			click "_action_delete"
+		}
+		assertStatus 200
+		
+		assertContentContains "deleted"
+		assertStatus 200
+		
 	 }
 }
