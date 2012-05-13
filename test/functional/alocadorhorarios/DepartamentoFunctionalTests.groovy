@@ -110,7 +110,7 @@ class DepartamentoFunctionalTests extends BrowserTestCase {
 		click "Departamento List"
 		assertContentContains "dxu"
 		assertContentContains "preto"
-		assertContentContains "Manoel"
+		assertContentContains "Paulo"
 		assertContentContains "List"
 		assertStatus 200
 		
