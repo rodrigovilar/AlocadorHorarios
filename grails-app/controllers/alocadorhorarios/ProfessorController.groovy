@@ -111,4 +111,16 @@ class ProfessorController {
             redirect(action: "show", id: params.id)
         }
     }
+	
+	def horarioPorProfessor() {
+		def prof = Professor.get(params.id)
+		def turmas = prof.turmas
+		def horarios = []
+
+		for(def turma : turmas) {
+			horarios.add(Turma.horario)
+		}
+		render horario as JSON
+	}
+
 }
