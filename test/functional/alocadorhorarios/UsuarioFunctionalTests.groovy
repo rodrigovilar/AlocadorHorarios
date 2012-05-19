@@ -32,24 +32,23 @@ class UsuarioFunctionalTests extends BrowserTestCase {
 		assertContentContains "created"
 		assertStatus 200
 		
-		
-		get('/usuario/list')
-		assertContentContains "List"
+		click "Edit"
 		assertStatus 200
 		
-		/*click "Gonçalves"
-		assertContentContains "Gonçalves"
-		assertStatus 200
 		form {
-			j_username "Tiao"
-			j_password "senha00"
+			username "Tiao"
+			password "12340"
 			click "_action_update"
 		}
 		assertStatus 200
 		assertContentContains "Tiao"
-		assertContentContains "senha00"
 		assertContentContains "updated"
 		assertStatus 200
-		*/
+		
+		click "Usuario List"
+		assertContentContains "Tiao"
+		assertContentContains "List"
+		assertStatus 200
+		
 	}
 }
