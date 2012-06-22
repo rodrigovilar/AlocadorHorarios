@@ -3,7 +3,8 @@ package alocadorhorarios
 import com.grailsrocks.functionaltest.*
 
 class UsuarioFunctionalTests extends BrowserTestCase {
-    void testLogin() {
+   
+	 void testLogin() {
 		get('/login/auth')
 		assertStatus 200
 		
